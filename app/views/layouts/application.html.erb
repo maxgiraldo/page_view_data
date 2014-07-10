@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="pageViewStatsApp">
 <head>
   <title>CodingExercise</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div ng-view>
+  <%= yield %>
+</div>
 
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-resource.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-route.js"></script>
+<script src="/javascripts/app.js"></script>
+<%= javascript_include_tag "application" -%>
 </body>
 </html>
