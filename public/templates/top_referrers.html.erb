@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1><a href="/top_urls">Top Urls</a>/<a href="/top_referrers">Top Referrers</a></h1>
+                <h1><a href="#/top_urls">Top Urls</a>/<a href="#/top_referrers">Top Referrers</a></h1>
             </div>
         </div>
 
-        <div class="row" ng-controller="TopReferrerCtrl">
+        <!-- <div class="row" ng-controller="TopReferrerCtrl">
             <div ng-repeat="(date, val) in top_referrers">
                 <div class="col-md-2">
                     <h3>{{ date }}</h3>
@@ -18,6 +18,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div> -->
+
+        <div ng-controller="TopReferrerCtrl">
+            <div ng-repeat="(date, val) in top_referrers">
+                <h4>{{ date }}</h4>
+                <table class="table table-bordered table-hover table-responsive">
+                    <thead>
+                        <th>URL</th>
+                        <th>Visits</th>
+                        <th>#1 Referrer</th>
+                        <th>#2 Referrer</th>
+                        <th>#3 Referrer</th>
+                        <th>#4 Referrer</th>
+                        <th>#5 Referrer</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in val">
+                            <td>{{ data.url }}</td>
+                            <td>{{ data.count }}</td>
+                            <td ng-repeat="ref in data.referrers">
+                                {{ ref.url }} - Visits: {{ ref.count }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

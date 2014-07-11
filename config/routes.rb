@@ -1,6 +1,4 @@
 CodingExercise::Application.routes.draw do
-  resources :page_views
-
   root 'static_pages#index'
 
   namespace :api, defaults: {format: :json} do

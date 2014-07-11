@@ -5,7 +5,7 @@ var app = angular.module('pageViewStatsApp', ['ngResource', 'ngRoute']);
 app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider.
-      when('/', {
+      when('/top_urls', {
         templateUrl: '/templates/index.html.erb',
         controller: 'TopUrlCtrl'
       }).
@@ -14,9 +14,8 @@ app.config(['$routeProvider', '$locationProvider',
         controller: 'TopReferrerCtrl'
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/top_urls'
       });
-      $locationProvider.html5Mode(true);
   }]);
 
 app.controller('TopUrlCtrl', function($scope, $resource) {

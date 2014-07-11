@@ -2,18 +2,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1><a href="/top_urls">Top Urls</a>/<a href="/top_referrers">Top Referrers</a></h1>
+                <h1><a href="#/top_urls">Top Urls</a>/<a href="#/top_referrers">Top Referrers</a></h1>
             </div>
         </div>
 
-        <div class="row" ng-controller="TopUrlCtrl">
+        <div ng-controller="TopUrlCtrl">
             <div ng-repeat="(date, val) in top_urls">
-                <div class="col-md-2">
-                    <h3>{{ date }}</h3>
-                    <div ng-repeat="result in val">
-                        <p><strong>{{ result.url }}</strong> - {{ result.count }}</p>
-                    </div>
-                </div>
+                <h4>{{ date }}</h4>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <th>URL</th>
+                        <th>Visits</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key, data) in val">
+                            <td>{{ data.url }}</td>
+                            <td>{{ data.count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
