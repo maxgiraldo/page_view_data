@@ -8,9 +8,8 @@ class Api::V1::TopReferrersController < ApplicationController
 
   private
     def get_top_referrers
-      start_day = PageView.select(:created_at).order(:created_at).first
-      end_day = start_day.created_at + (60*60*24*10)
-      start_day = start_day.created_at.to_date
+      start_day = PageView.select(:created_at).min(:created_at)
+      end_day = start_day + (60*60*24*10)
 
       day_one = end_day.to_date - 5
       day_five = end_day.to_date
